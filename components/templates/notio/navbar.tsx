@@ -16,8 +16,8 @@ export default function Navbar() {
   ];
 
   return (
-    <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50 mx-2 md:mx-4 lg:mx-6 w-full md:max-w-3xl lg:max-w-5xl xl:max-w-6xl bg-background/80 backdrop-blur-sm py-2 px-4 rounded-xl">
-      <div className="flex flex-row justify-between items-center py-2">
+    <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50 mx-2 md:mx-4 lg:mx-6 w-full md:max-w-3xl lg:max-w-5xl xl:max-w-6xl bg-background/80 backdrop-blur-sm py-1 px-4 rounded-lg">
+      <div className="flex flex-row justify-between items-center">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -27,8 +27,8 @@ export default function Navbar() {
             src="/logo/feedforge-logo.png"
             className="dark:invert-0 invert"
             alt="FeedForge"
-            width={140}
-            height={40}
+            width={124}
+            height={35}
           />
         </motion.div>
 
@@ -78,7 +78,8 @@ export default function Navbar() {
           >
             <Button
               variant="default"
-              className="4xl:text-2xl 4xl:h-16 4xl:px-8"
+              size="sm"
+              className="4xl:text-2xl 4xl:h-12 4xl:px-6"
             >
               <Link href="/auth/signup">Sign up</Link>
             </Button>

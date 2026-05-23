@@ -14,11 +14,12 @@ export function ThemeToggle() {
   }, []);
 
   if (!mounted) {
-    return <div className="border border-border h-9 w-[72px] rounded-md" />;
+    return <div className="border border-border h-8 w-16 rounded-md" />;
   }
 
   return (
     <ToggleGroup
+      size="sm"
       value={resolvedTheme ? [resolvedTheme] : []}
       onValueChange={(value) => {
         if (value[0]) setTheme(value[0]);
