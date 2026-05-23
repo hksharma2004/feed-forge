@@ -2,12 +2,10 @@
 
 import { useEffect } from "react";
 import { useTheme } from "next-themes";
-import { useColorTheme } from "@/hooks/color-theme-context";
 import { ThemeConfigProps } from "@/types/utils/configs/theme";
 
-export function ThemeVariables({ themesConfig }: { themesConfig: ThemeConfigProps }) {
+export function ThemeVariables({ themesConfig, colorTheme = "sunny" }: { themesConfig: ThemeConfigProps; colorTheme?: string }) {
   const { resolvedTheme } = useTheme();
-  const { colorTheme } = useColorTheme();
 
   useEffect(() => {
     const colorThemeConfig = themesConfig.find((theme) => theme.name === colorTheme);
@@ -30,7 +28,7 @@ export function ThemeVariables({ themesConfig }: { themesConfig: ThemeConfigProp
     Object.entries(colors).forEach(([key, value]) => {
       root.style.setProperty(`--${key}`, value);
     });
-  }, [resolvedTheme, colorTheme]);
+  }, [resolvedTheme, colorTheme, themesConfig]);
 
   return null;
 }

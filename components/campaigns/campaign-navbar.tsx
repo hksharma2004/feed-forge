@@ -1,6 +1,7 @@
 "use client";
 
 import { authClient } from "@/lib/auth-client";
+import type { CampaignUser } from "@/lib/types";
 import { ChevronDown, LogOut, Plus } from "lucide-react";
 import { motion } from "motion/react";
 import Image from "next/image";
@@ -8,11 +9,6 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { memo, useState } from "react";
 import styles from "./campaign-navbar.module.css";
-
-type UserShape = {
-  name?: string | null;
-  email?: string | null;
-};
 
 function FeedForgeLogo() {
   return (
@@ -30,7 +26,7 @@ function FeedForgeLogo() {
 }
 
 
-function UserPill({ user }: { user: UserShape }) {
+function UserPill({ user }: { user: CampaignUser }) {
   const router = useRouter();
   const [signingOut, setSigningOut] = useState(false);
   const name = user.name || "Harsh Sharma";
@@ -58,7 +54,7 @@ function UserPill({ user }: { user: UserShape }) {
   );
 }
 
-function CampaignNavbarComponent({ user }: { user: UserShape }) {
+function CampaignNavbarComponent({ user }: { user: CampaignUser }) {
   const pathname = usePathname();
   const activeItem = pathname === "/campaigns/new" ? "agents" : "campaigns";
 

@@ -59,3 +59,9 @@ export type GeneratedPost = z.infer<typeof generatedPostSchema>;
 export type ApprovedPost = z.infer<typeof approvedPostSchema>;
 export type RejectedPost = z.infer<typeof rejectedPostSchema>;
 export type CampaignLibrary = z.infer<typeof campaignLibrarySchema>;
+
+export type CampaignUser = {
+  id: string;
+  name?: string | null;
+  email?: string | null;
+};
