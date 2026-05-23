@@ -118,7 +118,7 @@ export default function LogoCloud() {
             <Image
               src={logo.image}
               alt={logo.name}
-              className="object-contain brightness-125"
+              className={`object-contain brightness-125 ${logo.image === "/icons/gitagent.png" ? "invert dark:invert-0" : ""}`}
               width={logo.size?.width}
               height={logo.size?.height}
             />

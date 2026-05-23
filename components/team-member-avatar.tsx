@@ -56,7 +56,7 @@ export default function TeamMemberAvatar({
           alt={member.name}
           width={isGitagent ? 112 : 80}
           height={isGitagent ? 112 : 80}
-          className="object-contain w-full h-full brightness-125"
+          className={`object-contain w-full h-full brightness-125 ${isGitagent ? "invert dark:invert-0" : ""}`}
         />
       </motion.div>
     </motion.div>
