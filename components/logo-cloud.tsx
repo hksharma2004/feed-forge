@@ -1,92 +1,78 @@
 "use client";
 
-import { useMediaQuery } from "@/hooks/use-media-query";
-import { StaticImageType } from "@/types/components/image";
 import { motion, type Variants } from "motion/react";
 import Image from "next/image";
+import { memo } from "react";
 
-export default function LogoCloud() {
-  const is4xl = useMediaQuery("(min-width: 2560px)");
-  const logos: StaticImageType[] = [
-    {
-      name: "X drafts",
-      image:
-        "/icons/x.svg",
-      size: {
-        width: is4xl ? 120 : 100,
-        height: is4xl ? 120 : 100,
-      },
-    },
-    {
-      name: "LinkedIn posts",
-      image:
-        "/icons/linkedin.svg",
-      size: {
-        width: is4xl ? 120 : 100,
-        height: is4xl ? 120 : 100,
-      },
-    },
-    {
-      name: "Instagram captions",
-      image:
-        "/icons/instagram.svg",
-      size: {
-        width: is4xl ? 120 : 100,
-        height: is4xl ? 120 : 100,
-      },
-    },
-    {
-      name: "Approval memory",
-      image:
-        "/logo/brain.svg",
-      size: {
-        width: is4xl ? 120 : 100,
-        height: is4xl ? 120 : 100,
-      },
-    },
-    {
-      name: "gitagent memory",
-      image:
-        "/icons/gitagent.png",
-      size: {
-        width: is4xl ? 160 : 132,
-        height: is4xl ? 160 : 132,
-      },
-    },
-    {
-      name: "OpenRouter scoring",
-      image:
-        "/logo/openrouter.svg",
-      size: {
-        width: is4xl ? 120 : 100,
-        height: is4xl ? 120 : 100,
-      },
-    },
-  ];
+const logos = [
+  {
+    name: "X drafts",
+    image: "/icons/x.svg",
+    width: 100,
+    height: 100,
+    className: "size-[100px] 4xl:size-[120px]",
+  },
+  {
+    name: "LinkedIn posts",
+    image: "/icons/linkedin.svg",
+    width: 100,
+    height: 100,
+    className: "size-[100px] 4xl:size-[120px]",
+  },
+  {
+    name: "Instagram captions",
+    image: "/icons/instagram.svg",
+    width: 100,
+    height: 100,
+    className: "size-[100px] 4xl:size-[120px]",
+  },
+  {
+    name: "Approval memory",
+    image: "/logo/brain.svg",
+    width: 100,
+    height: 100,
+    className: "size-[100px] 4xl:size-[120px]",
+  },
+  {
+    name: "gitagent memory",
+    image: "/icons/gitagent.png",
+    width: 132,
+    height: 132,
+    className: "size-[132px] 4xl:size-[160px] invert dark:invert-0",
+  },
+  {
+    name: "OpenRouter scoring",
+    image: "/logo/openrouter.svg",
+    width: 100,
+    height: 100,
+    className: "size-[100px] 4xl:size-[120px]",
+  },
+] as const;
 
-  const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.3,
-      },
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.3,
     },
-  };
+  },
+};
 
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: [0.25, 0.1, 0.25, 1],
-      },
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: [0.25, 0.1, 0.25, 1],
     },
-  };
+  },
+};
 
+function LogoCloud() {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -118,9 +104,9 @@ export default function LogoCloud() {
             <Image
               src={logo.image}
               alt={logo.name}
-              className={`object-contain brightness-125 ${logo.image === "/icons/gitagent.png" ? "invert dark:invert-0" : ""}`}
-              width={logo.size?.width}
-              height={logo.size?.height}
+              className={`object-contain brightness-125 ${logo.className}`}
+              width={logo.width}
+              height={logo.height}
             />
           </motion.div>
         ))}
@@ -128,3 +114,5 @@ export default function LogoCloud() {
     </motion.div>
   );
 }
+
+export default memo(LogoCloud);

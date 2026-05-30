@@ -4,24 +4,25 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { motion } from "motion/react";
 import Image from "next/image";
 import BlurredOrb from "@/components/blurred-orb";
+import { memo } from "react";
 
 type Tool = {
   name: string;
   image: string;
 };
 
-export default function ToolFeature() {
-  const tools: Tool[] = [
-    { name: "X",         image: "/icons/x.svg" },
-    { name: "LinkedIn",  image: "/icons/linkedin.svg" },
-    { name: "Instagram", image: "/icons/instagram.svg" },
-    { name: "TikTok",   image: "/icons/tiktok.svg" },
-    { name: "Facebook",  image: "/icons/facebook.svg" },
-    { name: "YouTube",   image: "/icons/youtube.svg" },
-    { name: "Threads",   image: "/icons/threads.svg" },
-    { name: "Pinterest", image: "/icons/pinterest.svg" },
-  ];
+const tools: Tool[] = [
+  { name: "X", image: "/icons/x.svg" },
+  { name: "LinkedIn", image: "/icons/linkedin.svg" },
+  { name: "Instagram", image: "/icons/instagram.svg" },
+  { name: "TikTok", image: "/icons/tiktok.svg" },
+  { name: "Facebook", image: "/icons/facebook.svg" },
+  { name: "YouTube", image: "/icons/youtube.svg" },
+  { name: "Threads", image: "/icons/threads.svg" },
+  { name: "Pinterest", image: "/icons/pinterest.svg" },
+];
 
+function ToolFeature() {
   return (
     <motion.div
       initial={{ opacity: 0, y: 40 }}
@@ -93,3 +94,4 @@ export default function ToolFeature() {
   );
 }
 
+export default memo(ToolFeature);

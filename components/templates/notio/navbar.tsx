@@ -3,17 +3,17 @@ import { AnimatePresence, motion } from "motion/react";
 import { ChevronDownIcon, MenuIcon, XIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { memo, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "./theme-toggle";
 
-export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+const navItems: { label: string; href: string }[] = [
+  { label: "Agents", href: "#agents" },
+  { label: "Scoring", href: "#scoring" },
+];
 
-  const navItems: { label: string; href: string }[] = [
-    { label: "Agents", href: "#agents" },
-    { label: "Scoring", href: "#scoring" },
-  ];
+function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50 mx-2 md:mx-4 lg:mx-6 w-full md:max-w-3xl lg:max-w-5xl xl:max-w-6xl bg-background/80 backdrop-blur-sm py-1 px-4 rounded-lg">
@@ -188,3 +188,5 @@ export default function Navbar() {
     </div>
   );
 }
+
+export default memo(Navbar);

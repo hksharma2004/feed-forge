@@ -3,31 +3,33 @@
 import { FeatureCardProps } from "@/types/components/feature";
 import { GitBranch, ShieldCheck, Sparkle } from "lucide-react";
 import { motion } from "motion/react";
+import { memo } from "react";
 import FeatureCard from "./feature-card";
 import ToolFeature from "./tool-feature";
 import TranscriptionFeature from "./transcription-feature";
-export default function Features() {
-  const features: FeatureCardProps[] = [
-    {
-      title: "Create campaign agents",
-      description:
-        "Turn brand voice, ICP, content rules, and platform into a gitagent repo with durable campaign memory.",
-      icon: GitBranch,
-    },
-    {
-      title: "Score before publishing",
-      description:
-        "Preview like, reply, repost, click, block, mute, and brand score before a post reaches the feed.",
-      icon: ShieldCheck,
-    },
-    {
-      title: "Generate with memory",
-      description:
-        "Use approved posts as style signals and rejected posts as guardrails for sharper variants.",
-      icon: Sparkle,
-    },
-  ];
 
+const features: FeatureCardProps[] = [
+  {
+    title: "Create campaign agents",
+    description:
+      "Turn brand voice, ICP, content rules, and platform into a gitagent repo with durable campaign memory.",
+    icon: GitBranch,
+  },
+  {
+    title: "Score before publishing",
+    description:
+      "Preview like, reply, repost, click, block, mute, and brand score before a post reaches the feed.",
+    icon: ShieldCheck,
+  },
+  {
+    title: "Generate with memory",
+    description:
+      "Use approved posts as style signals and rejected posts as guardrails for sharper variants.",
+    icon: Sparkle,
+  },
+];
+
+function Features() {
   return (
     <div className="flex flex-col gap-8 items-center justify-center p-4">
       <motion.h1
@@ -72,3 +74,5 @@ export default function Features() {
     </div>
   );
 }
+
+export default memo(Features);

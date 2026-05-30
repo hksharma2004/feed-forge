@@ -2,14 +2,15 @@
 
 import { motion } from "motion/react";
 import Counter from "@/components/counter";
+import { memo } from "react";
 
-export default function Stats() {
-  const stats: { value: number; suffix?: string; description: string }[] = [
-    { value: 150, description: "Variants Generated" },
-    { value: 180, description: "Signals Scored" },
-    { value: 120, description: "Top Posts Returned" },
-  ];
+const stats: { value: number; suffix?: string; description: string }[] = [
+  { value: 150, description: "Variants Generated" },
+  { value: 180, description: "Signals Scored" },
+  { value: 120, description: "Top Posts Returned" },
+];
 
+function Stats() {
   return (
     <div className="flex flex-col gap-4 md:gap-20 items-center justify-center py-6 lg:py-24 px-4 lg:px-2">
       <motion.section
@@ -65,3 +66,5 @@ export default function Stats() {
     </div>
   );
 }
+
+export default memo(Stats);

@@ -4,36 +4,37 @@ import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { memo } from "react";
 
-export default function Footer() {
-  const socialLinks: { label: string; href: string; icon: string }[] = [
-    {
-      label: "X",
-      href: "#",
-      icon: "/icons/x.svg",
-    },
-    {
-      label: "LinkedIn",
-      href: "#",
-      icon: "/icons/linkedin.svg",
-    },
-    {
-      label: "Facebook",
-      href: "#",
-      icon: "/icons/facebook.svg",
-    },
-    {
-      label: "Instagram",
-      href: "#",
-      icon: "/icons/instagram.svg",
-    },
-    {
-      label: "Tiktok",
-      href: "#",
-      icon: "/icons/tiktok.svg",
-    },
-  ];
+const socialLinks: { label: string; href: string; icon: string }[] = [
+  {
+    label: "X",
+    href: "#",
+    icon: "/icons/x.svg",
+  },
+  {
+    label: "LinkedIn",
+    href: "#",
+    icon: "/icons/linkedin.svg",
+  },
+  {
+    label: "Facebook",
+    href: "#",
+    icon: "/icons/facebook.svg",
+  },
+  {
+    label: "Instagram",
+    href: "#",
+    icon: "/icons/instagram.svg",
+  },
+  {
+    label: "Tiktok",
+    href: "#",
+    icon: "/icons/tiktok.svg",
+  },
+];
 
+function Footer() {
   return (
     <footer className="max-md:relative flex flex-col max-md:px-4 lg:ml-3">
       <motion.div
@@ -137,3 +138,5 @@ export default function Footer() {
     </footer>
   );
 }
+
+export default memo(Footer);

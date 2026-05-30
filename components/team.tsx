@@ -7,27 +7,27 @@ import BlurredOrb from "@/components/blurred-orb";
 import { GridPattern } from "@/components/ui/grid-pattern";
 import TeamMemberAvatar from "./team-member-avatar";
 import { useMediaQuery } from "@/hooks/use-media-query";
+import { memo } from "react";
 
-export default function Team() {
-  const team: Omit<TeamMember, "index">[] = [
-    {
-      name: "gitagent",
-      role: "SOUL.md + RULES.md",
-      image: "/icons/gitagent.png",
-    },
-    {
-      name: "Scoring Agent",
-      role: "OpenRouter",
-      image: "/logo/openrouter.svg",
-    },
-    {
-      name: "Memory Agent",
-      role: "Approved / Rejected",
-      image: "/logo/brain.svg",
-    },
-  ];
+const team: Omit<TeamMember, "index">[] = [
+  {
+    name: "gitagent",
+    role: "SOUL.md + RULES.md",
+    image: "/icons/gitagent.png",
+  },
+  {
+    name: "Scoring Agent",
+    role: "OpenRouter",
+    image: "/logo/openrouter.svg",
+  },
+  {
+    name: "Memory Agent",
+    role: "Approved / Rejected",
+    image: "/logo/brain.svg",
+  },
+];
 
-
+function Team() {
   const isMobile = useMediaQuery("(max-width: 768px)");
 
   return (
@@ -100,3 +100,5 @@ export default function Team() {
     </div>
   );
 }
+
+export default memo(Team);

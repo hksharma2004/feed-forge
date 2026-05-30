@@ -2,9 +2,9 @@ import { useMediaQuery } from "@/hooks/use-media-query";
 import { TeamMember } from "@/types/components/team-member";
 import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
-import { useState } from "react";
+import { memo, useState } from "react";
 
-export default function TeamMemberAvatar({
+function TeamMemberAvatar({
   member,
   index,
 }: {
@@ -62,3 +62,5 @@ export default function TeamMemberAvatar({
     </motion.div>
   );
 }
+
+export default memo(TeamMemberAvatar);

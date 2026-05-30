@@ -36,7 +36,7 @@ export function useMediaQuery(
     const matchMedia = window.matchMedia(query);
 
     const handleChange = () => {
-      setMatches(getMatches(query));
+      setMatches(matchMedia.matches);
     };
 
     handleChange();
