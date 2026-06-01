@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     siteName: "FeedForge",
     images: [
       {
-        url: "/opengraph-image",
+        url: "/x-preview.png",
         width: 1200,
         height: 630,
         alt: "FeedForge landing page preview with the headline Forge Every Post Before It Ships.",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
       "Forge every post before it ships with AI-powered campaign agents.",
     images: [
       {
-        url: "/opengraph-image",
+        url: "/x-preview.png",
         alt: "FeedForge landing page preview with the headline Forge Every Post Before It Ships.",
       },
     ],
