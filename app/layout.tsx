@@ -10,8 +10,41 @@ const notioSansFont =
   '-apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", Helvetica, ui-sans-serif, sans-serif';
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://feedforge.harsh1.tech"),
   title: "FeedForge",
-  description: "AI-powered campaign agents for modern creators.",
+  description:
+    "Build campaign agents, score drafts against your brand rules, and generate content that learns from every approval.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "FeedForge",
+    description:
+      "Forge every post before it ships with AI-powered campaign agents.",
+    url: "/",
+    siteName: "FeedForge",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "FeedForge landing page preview with the headline Forge Every Post Before It Ships.",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "FeedForge",
+    description:
+      "Forge every post before it ships with AI-powered campaign agents.",
+    images: [
+      {
+        url: "/opengraph-image",
+        alt: "FeedForge landing page preview with the headline Forge Every Post Before It Ships.",
+      },
+    ],
+  },
   icons: {
     icon: "/logo/feedforge-icon.png",
     shortcut: "/logo/feedforge-icon.png",
