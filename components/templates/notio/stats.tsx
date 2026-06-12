@@ -12,7 +12,10 @@ const stats: { value: number; suffix?: string; description: string }[] = [
 
 function Stats() {
   return (
-    <div className="flex flex-col gap-4 md:gap-20 items-center justify-center py-6 lg:py-24 px-4 lg:px-2">
+    <div
+      id="scoring"
+      className="flex scroll-mt-28 flex-col items-center justify-center gap-10 px-4 py-10 md:gap-20 lg:px-2 lg:py-24"
+    >
       <motion.section
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -44,13 +47,13 @@ function Stats() {
                 delay: 0.1 + index * 0.15,
                 ease: "easeOut",
               }}
-              className={`flex flex-col items-center justify-center px-0 md:px-4 py-4 md:py-6 md:py-0 w-full md:w-auto h-14 ${
+              className={`flex h-auto w-full flex-col items-center justify-center px-0 py-4 md:w-auto md:px-4 md:py-0 ${
                 index < stats.length - 1
                   ? "md:border-r border-muted-foreground/20 dark:border-muted-foreground/40"
                   : ""
               }`}
             >
-              <p className="text-4xl md:text-5xl 4xl:text-6xl tracking-tight mb-2 min-w-xs md:min-w-64 lg:min-w-xs text-center font-semibold">
+              <p className="mb-2 min-w-xs text-center text-4xl font-semibold tracking-tight md:min-w-64 md:text-5xl lg:min-w-xs 4xl:text-6xl">
                 <Counter value={stat.value} suffix={stat.suffix} />
               </p>
               <p className="text-center 4xl:text-2xl">

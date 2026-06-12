@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import Link from "next/link";
 
 export default function Hero() {
@@ -46,12 +47,15 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
           >
-            <Button
-              className="w-fit 4xl:text-2xl 4xl:px-6 4xl:h-16 hover:bg-white hover:text-foreground dark:hover:bg-secondary/80 dark:hover:text-foreground"
-              size="lg"
+            <Link
+              href="/auth/signup"
+              className={cn(
+                buttonVariants({ size: "lg" }),
+                "w-fit hover:bg-white hover:text-foreground dark:hover:bg-secondary/80 dark:hover:text-foreground 4xl:h-16 4xl:px-6 4xl:text-2xl"
+              )}
             >
-              <Link href="/auth/signup">Create campaign</Link>
-            </Button>
+              Create campaign
+            </Link>
           </motion.div>
         </section>
       </motion.div>

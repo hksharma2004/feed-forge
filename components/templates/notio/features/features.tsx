@@ -31,7 +31,10 @@ const features: FeatureCardProps[] = [
 
 function Features() {
   return (
-    <div className="flex flex-col gap-8 items-center justify-center p-4">
+    <div
+      id="agents"
+      className="flex scroll-mt-28 flex-col items-center justify-center gap-8 p-4"
+    >
       <motion.h1
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}

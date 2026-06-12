@@ -3,7 +3,8 @@
 import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import { memo } from "react";
 
 const socialLinks: { label: string; href: string; icon: string }[] = [
@@ -72,9 +73,15 @@ function Footer() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
           >
-            <Button className="w-fit 4xl:text-2xl 4xl:px-12 4xl:h-18" size="lg">
-              <Link href="/auth/signup">Create campaign</Link>
-            </Button>
+            <Link
+              href="/auth/signup"
+              className={cn(
+                buttonVariants({ size: "lg" }),
+                "w-fit 4xl:h-18 4xl:px-12 4xl:text-2xl"
+              )}
+            >
+              Create campaign
+            </Link>
           </motion.div>
         </section>
       </motion.div>
@@ -99,22 +106,27 @@ function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
-          className="flex gap-6 md:gap-8 text-muted-foreground 4xl:text-2xl"
+          className="flex flex-wrap justify-center gap-x-6 gap-y-3 text-muted-foreground md:gap-8 4xl:text-2xl"
         >
-          <li>Agents</li>
-          <li>Scoring</li>
-          <li>Memory</li>
-          <li>Queue</li>
+          <li><Link className="transition-colors hover:text-foreground" href="#agents">Agents</Link></li>
+          <li><Link className="transition-colors hover:text-foreground" href="#scoring">Scoring</Link></li>
+          <li><Link className="transition-colors hover:text-foreground" href="#agents">Memory</Link></li>
+          <li><Link className="transition-colors hover:text-foreground" href="/auth/signup">Queue</Link></li>
         </motion.ul>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
-          className="flex gap-3 md:ap-4 4xl:gap-8 items-center justify-center"
+          className="flex items-center justify-center gap-3 md:gap-4 4xl:gap-8"
         >
           {socialLinks.map((link) => (
-            <Link key={link.label} href={link.href}>
+            <Link
+              key={link.label}
+              href={link.href}
+              aria-label={link.label}
+              className="rounded-md p-1 opacity-70 transition hover:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            >
               <Image
                 src={link.icon}
                 alt={link.label}
