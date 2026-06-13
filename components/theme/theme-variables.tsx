@@ -1,34 +1,25 @@
-"use client";
-
-import { useEffect } from "react";
-import { useTheme } from "next-themes";
 import { ThemeConfigProps } from "@/types/utils/configs/theme";
 
-export function ThemeVariables({ themesConfig, colorTheme = "sunny" }: { themesConfig: ThemeConfigProps; colorTheme?: string }) {
-  const { resolvedTheme } = useTheme();
+function toCssVariables(colors: Record<string, string>) {
+  return Object.entries(colors)
+    .map(([key, value]) => `--${key}:${value};`)
+    .join("");
+}
 
-  useEffect(() => {
-    const colorThemeConfig = themesConfig.find((theme) => theme.name === colorTheme);
+export function ThemeVariables({
+  themesConfig,
+  colorTheme = "sunny",
+}: {
+  themesConfig: ThemeConfigProps;
+  colorTheme?: string;
+}) {
+  const theme = themesConfig.find(({ name }) => name === colorTheme);
 
-    if (!colorThemeConfig) {
-      console.warn(`Theme "${colorTheme}" not found`);
-      return;
-    }
+  if (!theme) {
+    return null;
+  }
 
-    const isDark =
-      resolvedTheme === "dark"
-        ? true
-        : resolvedTheme === "light"
-          ? false
-          : document.documentElement.classList.contains("dark");
+  const css = `:root{${toCssVariables(theme.light)}}.dark{${toCssVariables(theme.dark)}}`;
 
-    const colors = isDark ? colorThemeConfig.dark : colorThemeConfig.light;
-
-    const root = document.documentElement;
-    Object.entries(colors).forEach(([key, value]) => {
-      root.style.setProperty(`--${key}`, value);
-    });
-  }, [resolvedTheme, colorTheme, themesConfig]);
-
-  return null;
+  return <style dangerouslySetInnerHTML={{ __html: css }} />;
 }

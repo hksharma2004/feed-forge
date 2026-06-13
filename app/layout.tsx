@@ -59,6 +59,9 @@ export default function NotioTemplateLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <ThemeVariables themesConfig={themesConfig} colorTheme="sunny" />
+      </head>
       <body
         className={`${aleo.variable} min-h-screen bg-background text-foreground`}
         style={{ fontFamily: notioSansFont }}
@@ -73,7 +76,6 @@ export default function NotioTemplateLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <ThemeVariables themesConfig={themesConfig} colorTheme="sunny" />
             {children}
           </ThemeProvider>
         </div>
