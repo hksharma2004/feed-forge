@@ -23,7 +23,7 @@ function Navbar() {
     >
       <div className="flex flex-row justify-between items-center">
         <motion.div
-          initial={{ opacity: 0, x: -20 }}
+          initial={false}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -40,7 +40,7 @@ function Navbar() {
           {navItems.map((item, index) => (
             <motion.div
               key={item.label}
-              initial={{ opacity: 0, y: -10 }}
+              initial={false}
               animate={{ opacity: 1, y: 0 }}
               transition={{
                 duration: 0.4,
@@ -57,7 +57,7 @@ function Navbar() {
             </motion.div>
           ))}
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{
               duration: 0.4,
@@ -74,7 +74,7 @@ function Navbar() {
           </motion.div>
           <ThemeToggle />
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={false}
             animate={{ opacity: 1, scale: 1 }}
             transition={{
               duration: 0.4,
@@ -95,7 +95,7 @@ function Navbar() {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, x: 20 }}
+          initial={false}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="md:hidden"

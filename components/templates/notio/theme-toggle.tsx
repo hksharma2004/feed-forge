@@ -14,7 +14,7 @@ export function ThemeToggle() {
   }, []);
 
   if (!mounted) {
-    return <div className="border border-border h-8 w-16 rounded-md" />;
+    return <div aria-hidden className="invisible h-8 w-16" />;
   }
 
   return (
